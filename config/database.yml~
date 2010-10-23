@@ -11,10 +11,13 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: rmapspg_development
+  database: blod_development
   pool: 5
   username: rmapspg
   password: rmapspg
+  host: localhost
+  port: 5432
+
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -41,6 +44,8 @@ test:
   pool: 5
   username: rmapspg
   password: rmapspg
+  host: localhost
+  port: 5432
 
 production:
   adapter: postgresql
@@ -49,3 +54,6 @@ production:
   pool: 5
   username: rmapspg
   password: rmapspg
+  host: localhost
+  port: 5432
+
