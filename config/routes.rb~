@@ -13,7 +13,7 @@ Rmapspg::Application.routes.draw do
   # first created -> highest priority.
 
   # Sample of regular route:
-#  match 'locations/maps/:id' => 'locations#map' , :as => :map_location
+  match 'locations/maps/:id' => 'locations#map' , :as => :map_location
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:

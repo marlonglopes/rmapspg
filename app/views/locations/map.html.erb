@@ -1,0 +1,37 @@
+<%= debug params %>
+<%=@res %>
+<table>
+  <tr>
+    <th>Endereco</th>
+    <th>Lat</th>
+    <th>Lng</th>
+  </tr>
+
+  <tr>
+    <td><%= @location.endereco %></td>
+    <td><%= @location.lat %></td>
+    <td><%= @location.lng %></td>
+  </tr>
+</table>
+
+
+  <script type="text/javascript"> 
+    function initialize() {
+      if (GBrowserIsCompatible()) {
+        var map = new GMap2(document.getElementById("map_canvas"));
+        map.setCenter(new GLatLng(<%= @location.lng %>, <%= @location.lat %>), 13);
+        GEvent.addListener(map, "click", function() {
+          alert("You clicked the map.");
+         });
+      }
+    }  
+    </script> 
+  </head> 
+ 
+ <body onload="initialize()" onunload="GUnload()"> 
+    <div id="map_canvas" style="width: 500px; height: 300px"></div> 
+    <div id="message"></div> 
+  </body> 
+
+<%= link_to 'Show', @location %> |
+<%= link_to 'Back', locations_path %>

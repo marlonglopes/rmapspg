@@ -1,0 +1,16 @@
+  <script type="text/javascript"> 
+    function initialize() {
+      if (GBrowserIsCompatible()) {
+        var map = new GMap2(document.getElementById("map_canvas"));
+        map.setCenter(new GLatLng(37.4419, -122.1419), 13);
+        GEvent.addListener(map, "click", function() {
+          alert("You clicked the map.");
+         });
+      }
+    }  
+    </script> 
+  </head> 
+  <body onload="initialize()" onunload="GUnload()"> 
+    <div id="map_canvas" style="width: 500px; height: 300px"></div> 
+    <div id="message"></div> 
+  </body> 

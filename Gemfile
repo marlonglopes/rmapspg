@@ -12,6 +12,7 @@ gem 'geokit'
 #gem 'geokit-rails'
 gem 'geokit-rails3'
 
+gem 'google_geocoding'
 
 # Use unicorn as the web server
 # gem 'unicorn'
