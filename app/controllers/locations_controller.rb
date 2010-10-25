@@ -4,6 +4,7 @@ def map
 	
     @location = Location.find(params[:id])
 	 @res=getlocation(@location.endereco)
+
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @location }
@@ -16,6 +17,7 @@ def map2
 	
     @location = Location.find(params[:id])
 	 @res=getlocation(@location.endereco)
+
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @location }
@@ -39,9 +41,10 @@ end
   # GET /locations/1
   # GET /locations/1.xml
   def show
+
     @location = Location.find(params[:id])
 
-	 @res=getlocation(@location.endereco)
+#	 @res=getlocation(@location.endereco)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -52,6 +55,7 @@ end
   # GET /locations/new
   # GET /locations/new.xml
   def new
+
     @location = Location.new
 
     respond_to do |format|
@@ -63,7 +67,7 @@ end
   # GET /locations/1/edit
   def edit
     @location = Location.find(params[:id])
-	 @res=getlocation(@location.endereco)
+#	 @res=getlocation(@location.endereco)
 
   end
 
@@ -72,9 +76,9 @@ end
   def create
 	@location = Location.new(params[:location])
 
-	@res=getlocation(@location.endereco)
-	@location.lat=@res.lat
-	@location.lng=@res.lng
+#	@res=getlocation(@location.endereco)
+#	@location.lat=@res.lat
+#	@location.lng=@res.lng
 
     respond_to do |format|
       if @location.save
@@ -90,11 +94,11 @@ end
   # PUT /locations/1
   # PUT /locations/1.xml
   def update
-    @location = Location.find(params[:id])
+	   @location = Location.find(params[:id])
 
-	@res=getlocation(@location.endereco)
-	@location.lat=@res.lat
-	@location.lng=@res.lng
+#		@res=getlocation(@location.endereco)
+#		@location.lat=@res.lat
+#		@location.lng=@res.lng
 
     respond_to do |format|
       if @location.update_attributes(@location)

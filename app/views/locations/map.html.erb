@@ -1,5 +1,5 @@
 <%= debug params %>
-<%=@res %>
+
 <table>
   <tr>
     <th>Endereco</th>
@@ -9,11 +9,12 @@
 
   <tr>
     <td><%= @location.endereco %></td>
-    <td><%= @res.lat %></td>
-    <td><%= @res.lng %></td>
+    <td><%= @location.lat %></td>
+    <td><%= @location.lng %></td>
   </tr>
 </table>
 
+<% if @res %>
 
   <script type="text/javascript"> 
     function initialize() {
@@ -31,6 +32,8 @@
     <div id="map_canvas" style="width: 500px; height: 300px"></div> 
     <div id="message"></div> 
   </body> 
+
+<% end %>
 
 <%= link_to 'Show', @location %> |
 <%= link_to 'Back', locations_path %> |
