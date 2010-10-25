@@ -41,6 +41,8 @@ end
   def show
     @location = Location.find(params[:id])
 
+	 @res=getlocation(@location.endereco)
+
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @location }
@@ -61,6 +63,8 @@ end
   # GET /locations/1/edit
   def edit
     @location = Location.find(params[:id])
+	 @res=getlocation(@location.endereco)
+
   end
 
   # POST /locations
