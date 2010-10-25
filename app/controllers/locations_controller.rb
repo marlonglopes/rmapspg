@@ -98,7 +98,7 @@ private
 
 def getlocation(endereco)
 
-	geo = GoogleGeocoding::Geocoder.new
+	geo = GoogleGeocoding::Geocoder.new(:app_key => 'ABQIAAAAKl1KirkuM9Plf64-bvK9tBR15u23_USjIvPCKdzjdDlz0gFP4hTlYussijZsRjMDXhvAtFK_p_pQrQ')
 	res = geo.query(endereco)
 	
 end
