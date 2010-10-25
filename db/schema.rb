@@ -12,37 +12,10 @@
 
 ActiveRecord::Schema.define(:version => 20101021190019) do
 
-  create_table "accounts", :force => true do |t|
-    t.string   "username"
-    t.string   "email"
-    t.string   "password_hash"
-    t.string   "password_salt"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "cadpacs", :id => false, :force => true do |t|
-    t.integer "registro", :limit => 8, :null => false
-    t.text    "nome",                  :null => false
-  end
-
   create_table "locations", :force => true do |t|
     t.string   "endereco"
     t.float    "lat"
     t.float    "lng"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "pacientes", :force => true do |t|
-    t.integer  "registro"
-    t.text     "nome"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "users", :force => true do |t|
-    t.string   "user"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
