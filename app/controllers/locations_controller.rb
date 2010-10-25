@@ -12,6 +12,19 @@ def map
 	
 end
 
+def map2
+	
+    @location = Location.find(params[:id])
+	 @res=getlocation(@location.endereco)
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @location }
+    end
+
+	
+end
+
+
   # GET /locations
   # GET /locations.xml
   def index
@@ -53,7 +66,11 @@ end
   # POST /locations
   # POST /locations.xml
   def create
-    @location = Location.new(params[:location])
+	@location = Location.new(params[:location])
+
+	@res=getlocation(@location.endereco)
+	@location.lat=@res.lat
+	@location.lng=@res.lng
 
     respond_to do |format|
       if @location.save
@@ -71,8 +88,12 @@ end
   def update
     @location = Location.find(params[:id])
 
+	@res=getlocation(@location.endereco)
+	@location.lat=@res.lat
+	@location.lng=@res.lng
+
     respond_to do |format|
-      if @location.update_attributes(params[:location])
+      if @location.update_attributes(@location)
         format.html { redirect_to(@location, :notice => 'Location was successfully updated.') }
         format.xml  { head :ok }
       else
@@ -96,11 +117,15 @@ end
 
 private
 
+include Geokit::Geocoders
+
 def getlocation(endereco)
 
-	geo = GoogleGeocoding::Geocoder.new(:app_key => 'ABQIAAAAKl1KirkuM9Plf64-bvK9tBR15u23_USjIvPCKdzjdDlz0gFP4hTlYussijZsRjMDXhvAtFK_p_pQrQ')
-	res = geo.query(endereco)
+	#	geo = GoogleGeocoding::Geocoder.new(:app_key => 'ABQIAAAAKl1KirkuM9Plf64-bvK9tBR15u23_USjIvPCKdzjdDlz0gFP4hTlYussijZsRjMDXhvAtFK_p_pQrQ')
+	#	res = geo.query(endereco)
 	
+	res=MultiGeocoder.geocode(endereco)
+
 end
 
 

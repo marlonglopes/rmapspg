@@ -9,8 +9,8 @@
 
   <tr>
     <td><%= @location.endereco %></td>
-    <td><%= @location.lat %></td>
-    <td><%= @location.lng %></td>
+    <td><%= @res.lat %></td>
+    <td><%= @res.lng %></td>
   </tr>
 </table>
 
@@ -19,7 +19,7 @@
     function initialize() {
       if (GBrowserIsCompatible()) {
         var map = new GMap2(document.getElementById("map_canvas"));
-        map.setCenter(new GLatLng(<%= @location.lng %>, <%= @location.lat %>), 13);
+        map.setCenter(new GLatLng(<%= @res.lat %>, <%= @res.lng %>), 13);
         GEvent.addListener(map, "click", function() {
           alert("You clicked the map.");
          });
@@ -33,4 +33,6 @@
   </body> 
 
 <%= link_to 'Show', @location %> |
-<%= link_to 'Back', locations_path %>
+<%= link_to 'Back', locations_path %> |
+
+<%= link_to 'Ampliar Mapa', map2_location_path %>
