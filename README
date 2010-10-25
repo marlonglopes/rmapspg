@@ -4,6 +4,9 @@
 google api key
 'ABQIAAAAKl1KirkuM9Plf64-bvK9tBSxAq_xZRTx3mLnWFZ4tk6YOFJo3BQ8eHHtCwJoggKSbPR0Fn1-iRUJyA'
 
+http://rmapspg2.heroku.com/
+'ABQIAAAAKl1KirkuM9Plf64-bvK9tBSsTVJEtjvmgU9mT0FZk6ysq6KTZBRScr2kyQavDd1ykyeYD-A7AFmcqA'
+
  Location.find(:all, :origin=>'100 Spear st, San Francisco, CA',:within=>10)
 
 Rails is a web-application framework that includes everything needed to create
