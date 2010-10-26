@@ -1,4 +1,29 @@
 class LocationsController < ApplicationController
+
+
+def map
+	@location = Location.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @location }
+    end
+
+end
+
+
+def map2
+	@location = Location.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @location }
+    end
+
+end
+
+
+
   # GET /locations
   # GET /locations.xml
   def index
@@ -62,10 +87,16 @@ class LocationsController < ApplicationController
   # PUT /locations/1
   # PUT /locations/1.xml
   def update
-    @location = Location.find(params[:id])
+
+	@location = Location.find(params[:id])
+	@location.update_attributes(params[:location])
+
+	@res=getlocation(@location.endereco)
+	@location.lat=@res.lat
+	@location.lng=@res.lng
 
     respond_to do |format|
-      if @location.update_attributes(params[:location])
+      if @location.save
         format.html { redirect_to(@location, :notice => 'Location was successfully updated.') }
         format.xml  { head :ok }
       else
