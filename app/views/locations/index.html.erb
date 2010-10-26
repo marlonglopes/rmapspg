@@ -15,7 +15,6 @@
     <td><%= location.endereco %></td>
     <td><%= location.lat %></td>
     <td><%= location.lng %></td>
-    <td><%= link_to 'Mapa', map_location_path(location) %></td>
     <td><%= link_to 'Show', location %></td>
     <td><%= link_to 'Edit', edit_location_path(location) %></td>
     <td><%= link_to 'Destroy', location, :confirm => 'Are you sure?', :method => :delete %></td>
@@ -26,5 +25,3 @@
 <br />
 
 <%= link_to 'New Location', new_location_path %>
-
-

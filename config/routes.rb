@@ -1,5 +1,9 @@
 Rmapspg::Application.routes.draw do
 
+  resources :locations
+
+  resources :users
+
 #		resources :locations
 
 		resources :locations do
